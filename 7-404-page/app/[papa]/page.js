@@ -2,10 +2,10 @@ import React from 'react'
 
 
 
-const error = () => {
+const papa = () => {
   return (
-    <div>error</div>
+    <div>papa page</div>
   )
 }
 
-export default error
+export default papa
