@@ -1,14 +1,14 @@
 import { notFound } from 'next/navigation'
 import React from 'react'
 
+export const dynamicParams = false
+
 export async function generateStaticParams(){
   
     const response = await fetch("https://jsonplaceholder.typicode.com/posts")
     const data = await response.json()
     console.log(data)
     return data.map(({id})=>({blogID :`${id}`}))
-
-  
 
 }
 
