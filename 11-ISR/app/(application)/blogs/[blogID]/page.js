@@ -2,8 +2,11 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 export const dynamicParams = false
+
+// for ISR(Incremental static Regeneration)
 export const revalidate = 5
 
+// for SSG(staic site generation)
 export async function generateStaticParams(){
   
     const response = await fetch("https://jsonplaceholder.typicode.com/posts")

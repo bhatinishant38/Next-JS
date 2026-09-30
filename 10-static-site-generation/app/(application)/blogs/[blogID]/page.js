@@ -3,6 +3,8 @@ import React from 'react'
 
 export const dynamicParams = false
 
+
+// for SSG(staic site generation)
 export async function generateStaticParams(){
   
     const response = await fetch("https://jsonplaceholder.typicode.com/posts")
