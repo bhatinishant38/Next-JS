@@ -12,7 +12,6 @@ export async function generateStaticParams(){
 
 }
 
-
 export async function generateMetadata({params}) {
   const {blogID} = await params
   console.log("BlogID :",blogID)
