@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { Suspense } from "react";
 import Likes from "@/_components/Likes";
 import Comments from "@/_components/Comments";
+import Loading from "@/_components/Loading";
 
 
 export const metadata = {
@@ -25,15 +26,15 @@ const About = () => {
 
       <div className="m-10">
 
-        <Suspense fallback={<div>loading views...</div> }>
+        <Suspense fallback={<Loading children='Views'/>}>
           <Views />
         </Suspense>  
 
-         <Suspense fallback={<div>loading Likes...</div> }>
+         <Suspense fallback={<Loading children='Likes'/> }>
           <Likes/>
         </Suspense>
 
-         <Suspense fallback={<div>loading comments...</div> }>
+         <Suspense fallback={<Loading children='Comments'/>}>
           <Comments/>    
         </Suspense>
         
