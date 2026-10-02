@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { Suspense } from "react";
 import Likes from "@/_components/Likes";
 import Comments from "@/_components/Comments";
-import Loading from "@/_components/Loading";
+// import Loading from "@/_components/Loading";
 
 
 export const metadata = {
@@ -26,14 +26,10 @@ const About = () => {
 
       <div className="m-10">
 
-
-         
           <Likes/>
-        
-
-         
-        
-        
+          <Comments/>
+          <Views/>
+ 
       </div>
     </>
   );

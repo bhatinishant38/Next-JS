@@ -1,9 +1,10 @@
 import React from 'react'
 
 const Comments =async () => {
-  await new Promise((resolve)=>setTimeout(resolve,9000))
+  console.log('Comment page')
 
   return (
+    
     <div>1k comments</div>
   )
 }

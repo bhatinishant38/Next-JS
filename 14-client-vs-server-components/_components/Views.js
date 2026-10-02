@@ -1,7 +1,9 @@
+'use client'
+
 import React from 'react'
 
-const Views = async () => {
-  await new Promise((resolve)=>setTimeout(resolve,3000))
+const Views =  () => {
+  console.log('views page')
   return (
     <div>10k views</div>
   )
