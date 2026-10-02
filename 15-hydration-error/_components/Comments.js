@@ -1,15 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import React from 'react'
 
 const Comments = () => {
-  const [comments, setComments] = useState('5k comment in just 1 hour')
 
-  useEffect(() => {
-    setComments('1k comments')
-  }, [])
-
-  return <div>{comments}</div>
+  console.log('Comment page')
+  
+  if(typeof window ==="undefined"){
+    return <div>5k comment in just 1 hour</div>
+  }  return (
+    <div>1k comments</div>
+  )
+  
 }
 
 export default Comments
