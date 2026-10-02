@@ -7,12 +7,12 @@ export const dynamicParams = false;
 export const revalidate = 5;
 
 // for SSG(staic site generation)
-export async function generateStaticParams() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const data = await response.json();
-  console.log(data);
-  return data.map(({ id }) => ({ blogID: `${id}` }));
-}
+// export async function generateStaticParams() {
+//   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+//   const data = await response.json();
+//   console.log(data);
+//   return data.map(({ id }) => ({ blogID: `${id}` }));
+// }
 
 export async function generateMetadata({ params }) {
   const { blogID } = await params;
@@ -24,13 +24,13 @@ export async function generateMetadata({ params }) {
 
 const Blog = async ({ params }) => {
   console.log(await params);
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
-    next: {
-      revalidate: 5,
-    },
-  });
-  const data = await response.json();
-  console.log(data);
+  // const response = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  //   next: {
+  //     revalidate: 5,
+  //   },
+  // });
+  // const data = await response.json();
+  // console.log(data);
 
   const { blogID } = await params;
   if (!/^\d+$/.test(blogID)) {
