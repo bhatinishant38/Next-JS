@@ -1,11 +1,25 @@
 const Blog = async ({ params }) => {
   const { blogID } = await params;
 
+  // if(blogID%2===0){
+  //   console.log(object)
+  // }
+  const randomNumber = Math.random()
+  console.log(randomNumber)
+  if (randomNumber > 0.5){
+    throw new Error("Error occured")
+  }
+
+
+
   return (
     <>
       <div>
         <h1>Welcome to Our Blog {blogID}</h1>
         <p>This is blog {blogID} page.</p>
+
+        
+        
       </div>
     </>
   );
