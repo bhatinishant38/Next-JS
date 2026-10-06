@@ -10,7 +10,7 @@ const Home = () => {
 
         <img width={600} height={400}  src="/mountainImage.jpg" alt="MountainImage" />
         <br />
-        <Image width={600} height={400}  src="/mountainImage.jpg" quality={100}></Image>
+        <Image width={600} height={400}  src="/mountainImage.jpg" quality={100} unoptimized></Image>
         
         
       </div>
