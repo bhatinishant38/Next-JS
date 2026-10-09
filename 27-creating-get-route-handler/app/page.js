@@ -16,6 +16,7 @@ export default function Home() {
   const [todos, setTodos] = useState(todosData);
   const { theme = "dark", setTheme } = useTheme();
      console.log("nishant Bhati")
+     console.log("nishant Bhati")
 
   // Add new todo
   const addTodo = (text) => {
