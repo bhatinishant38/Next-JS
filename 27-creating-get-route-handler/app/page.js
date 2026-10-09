@@ -15,7 +15,7 @@ const todosData = [
 export default function Home() {
   const [todos, setTodos] = useState(todosData);
   const { theme = "dark", setTheme } = useTheme();
-  console.log("hii")
+  
 
 
   // Add new todo
