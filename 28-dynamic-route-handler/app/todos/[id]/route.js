@@ -2,7 +2,7 @@ import todosData from '../../../todos.json' with { type : "json"}
 
 console.log(todosData)
 
-export async function GET(req, { params }) {
+export async function GET(request, { params }) {
     const {id } = await params
     console.log(id)
 
