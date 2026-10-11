@@ -1,6 +1,5 @@
 import todosData from '../../../todos.json' with { type : "json"}
-
-console.log(todosData)
+import { writeFile } from 'fs/promises'
 
 export async function GET(request, { params }) {
     const {id } = await params
@@ -16,15 +15,18 @@ export async function GET(request, { params }) {
 }
 
 
-export async function PUT(request) { 
-   const todo = await request.json()
-   const newTodos = {
-      id : crypto.randomUUID(),
-      text : todo.text,
-      completed : false
-   } 
-//    todosData.push(newTodos)
-//     writeFile('todos.json' , JSON.stringify(todosData))
-   return Response.json(newTodos)
+export async function PUT(request,{params}) { 
+
+   const {id } = await params
+   const editTodoData = await request.json()
+   const todoIndex = todosData.findIndex((todo)=> id === todo.id)
+   const todoData = todosData[todoIndex]
+
+   const editedTodo = { ...todoData , ...editTodoData  } 
+
+   todosData[todoIndex] = editedTodo
+   
+    writeFile('todos.json' , JSON.stringify(todosData))
+   return Response.json(editedTodo)
   
 }
