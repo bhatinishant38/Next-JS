@@ -1,13 +1,13 @@
 
 import todosData from '../../todos.json' with { type : "json"}
-import { writeFile } from 'fs/promises'
+import { readFile, writeFile } from 'fs/promises'
 
 console.log(todosData)
 
-export function GET(request) {
-   
-    return Response.json(todosData)
-  
+export async function GET(request) {
+  const todoJSONString = await readFile('./todos.json', 'utf-8')
+  const todos = JSON.parse(todoJSONString)
+  return Response.json(todos)
 }
 
 export async function POST(request) {
@@ -19,7 +19,7 @@ export async function POST(request) {
       completed : false
    } 
    todosData.push(newTodos)
-    writeFile('todos.json' , JSON.stringify(todosData))
+   await writeFile('todos.json', JSON.stringify(todosData))
    return Response.json(newTodos ,{
     status:201
    })

@@ -35,7 +35,7 @@ export async function PUT(request,{params}) {
 
    todosData[todoIndex] = editedTodo
 
-    writeFile('todos.json' , JSON.stringify(todosData))
+   await writeFile('todos.json', JSON.stringify(todosData))
    return Response.json(editedTodo)
   
 }
@@ -44,7 +44,7 @@ export async function DELETE(request, { params }) {
    const {id } = await params
    const todoIndex = todosData.findIndex((todo)=> id === todo.id)
    todosData.splice( todoIndex ,1)
-   writeFile('todos.json' , JSON.stringify(todosData ,null ,2))
+   await writeFile('todos.json', JSON.stringify(todosData, null, 2))
    return new Response(null ,{
       status : 204
    })
