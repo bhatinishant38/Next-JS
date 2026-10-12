@@ -11,7 +11,7 @@ export function GET(request) {
 }
 
 export async function POST(request) {
-    console.log(request)
+   console.log(request)
    const todo = await request.json()
    const newTodos = {
       id : crypto.randomUUID(),
