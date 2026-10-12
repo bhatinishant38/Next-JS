@@ -44,19 +44,28 @@ export default function Home() {
   };
 
   // Toggle todo completion
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+  const toggleTodo = async (id) => {
+    
+     const todo = todos.find((todo) => todo.id === id  )
+     const response = await fetch(`/todos/${id}` ,{
+      method : "PUT",
+      body : JSON.stringify({completed : ! todo.completed})
+     })
+    if(response.status === 200){
+       fetchTodos()
+     }
   };
 
   // Update todo text
-  const updateTodo = (id, newText) => {
-    setTodos(
-      todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo))
-    );
+  const updateTodo =async (id, newText) => {
+      
+     const response = await fetch(`/todos/${id}` ,{
+      method : "PUT",
+      body : JSON.stringify({text : newText})
+     })
+    if(response.status === 200){
+       fetchTodos()
+     }
   };
 
   return (
