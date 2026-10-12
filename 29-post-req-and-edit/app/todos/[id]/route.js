@@ -22,10 +22,19 @@ export async function PUT(request,{params}) {
    const todoIndex = todosData.findIndex((todo)=> id === todo.id)
    const todoData = todosData[todoIndex]
 
+   if(editTodoData.id){
+      return Response.json(
+         { error : "changing ID is not allow."},
+         {
+            error : 403
+         }
+      )
+   }
+
    const editedTodo = { ...todoData , ...editTodoData  } 
 
    todosData[todoIndex] = editedTodo
-   
+
     writeFile('todos.json' , JSON.stringify(todosData))
    return Response.json(editedTodo)
   

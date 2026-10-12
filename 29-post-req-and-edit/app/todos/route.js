@@ -20,6 +20,7 @@ export async function POST(request) {
    } 
    todosData.push(newTodos)
     writeFile('todos.json' , JSON.stringify(todosData))
-   return Response.json(newTodos)
-  
+   return Response.json(newTodos ,{
+    status:201
+   })
 }
