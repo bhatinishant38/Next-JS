@@ -1,20 +1,25 @@
 
 
-import { db } from '@/lib/db'
+import { connectDB } from '@/lib/db'
 import todosData from '../../todos.json' with { type : "json"}
 import { readFile, writeFile } from 'fs/promises'
+import mongoose from 'mongoose'
 
 console.log(todosData)
 
 
 
+
 export async function GET(request) {
 
-   const result = await db.collection('users').insertOne({ name : "Nishant Bhati"})
-   
+   await connectDB()
+
+   const result = await mongoose.connection.db.collection('users').find().toArray()
+   console.log(result)
+
   const todoJSONString = await readFile('./todos.json', 'utf-8')
   const todos = JSON.parse(todoJSONString)
-  return Response.json(todos)
+  return Response.json(result)
 }
 
 export async function POST(request) {
